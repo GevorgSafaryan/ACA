@@ -1,5 +1,6 @@
 package aca.first.test;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,13 +30,21 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
 		 WebDriver driver = new ChromeDriver();
 		 driver.get("http://sport.totogaming.am");
-		 driver.findElement(By.xpath("//*[@id=\"main_data_panel\"]/div[2]/div[1]/div[1]/div[1]"));
+		 driver.findElement(By.xpath("//div[@class=\"logo\"]"));
+		 Assert.assertTrue(driver.findElement(By.xpath("//div[@class=\"logo\"]")) != null);
 		 driver.findElement(By.xpath("//*[@id=\"login_panel\"]/a[2]")).click();
 		 WebElement login = driver.findElement(By.xpath("//*[@id=\"login\"]"));
 		 login.sendKeys("totobasket");
 		 WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
 		 password.sendKeys("toto1");
 		 driver.findElement(By.xpath("//*[@id=\"login_dialogue\"]/input")).click();
+		 Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"lblBalance\"]")) != null);
+		 driver.findElement(By.xpath("//div[@class='name' and text()='totobasket']")).click();
+		 driver.findElement(By.xpath("//div[@class='valueList ']/div[7]")).click();
+		 driver.findElement(By.xpath("//*[@id=\"login_panel\"]/a[2]"));
+		 //driver.findElement(By.xpath("//label[text() =  'Casino ID']/../input")).sendKeys("137783");
+		 WebElement ID = driver.findElement(By.xpath("//label[text() =  'Casino ID']/../input"));
+		 ID.sendKeys("137783");
 		 //driver.close();
 		 //driver.quit();
 	}
