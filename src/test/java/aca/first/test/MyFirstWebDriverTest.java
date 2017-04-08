@@ -41,10 +41,9 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		 Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"lblBalance\"]")) != null);
 		 driver.findElement(By.xpath("//div[@class='name' and text()='totobasket']")).click();
 		 driver.findElement(By.xpath("//div[@class='valueList ']/div[7]")).click();
-		 driver.findElement(By.xpath("//*[@id=\"login_panel\"]/a[2]"));
-		 //driver.findElement(By.xpath("//label[text() =  'Casino ID']/../input")).sendKeys("137783");
-		 WebElement ID = driver.findElement(By.xpath("//label[text() =  'Casino ID']/../input"));
-		 ID.sendKeys("137783");
+		 //driver.findElement(By.xpath("//a[@title=\"Трансфер\"]")).click();
+		 WebElement CasinoID = driver.findElement(By.xpath("//label[text() =  'Casino ID']/../input"));
+		 CasinoID.sendKeys("137783");
 		 //driver.close();
 		 //driver.quit();
 	}
