@@ -25,7 +25,7 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 */
 	
 	@Test()
-	public void myFirstTest(){
+	public void myFirstTest() throws Exception{
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
 		 WebDriver driver = new ChromeDriver();
@@ -39,13 +39,17 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		 password.sendKeys("toto1");
 		 driver.findElement(By.xpath("//*[@id=\"login_dialogue\"]/input")).click();
 		 Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"lblBalance\"]")) != null);
-		 driver.findElement(By.xpath("//div[@class='name' and text()='totobasket']")).click();
-		 driver.findElement(By.xpath("//div[@class='valueList ']/div[7]")).click();
-		 //driver.findElement(By.xpath("//a[@title=\"Трансфер\"]")).click();
+		 //driver.findElement(By.xpath("//div[@class='name' and text()='totobasket']")).click();
+		 //driver.findElement(By.xpath("//div[@class='valueList ']/div[7]")).click();
+		 driver.findElement(By.xpath("//a[@title=\"Трансфер\"]")).click();
+		 Thread.sleep(2000);
 		 WebElement CasinoID = driver.findElement(By.xpath("//label[text() =  'Casino ID']/../input"));
 		 CasinoID.sendKeys("137783");
-		 //driver.close();
-		 //driver.quit();
+		 WebElement Amount = driver.findElement(By.xpath("//label[text() = \"Сумма\"]/../div/input"));
+		 Amount.sendKeys("100");
+		 driver.findElement(By.xpath("//input[@value=\"Подтвердить\"]")).click();
+		 driver.close();
+		 driver.quit();
 	}
 
 }
