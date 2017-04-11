@@ -34,22 +34,52 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		 Assert.assertTrue(driver.findElement(By.xpath("//div[@class=\"logo\"]")) != null);
 		 driver.findElement(By.xpath("//*[@id=\"login_panel\"]/a[2]")).click();
 		 WebElement login = driver.findElement(By.xpath("//*[@id=\"login\"]"));
-		 login.sendKeys("totobasket");
+		 login.sendKeys("gevsafaryan");
 		 WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
-		 password.sendKeys("toto1");
+		 password.sendKeys("A");
 		 driver.findElement(By.xpath("//*[@id=\"login_dialogue\"]/input")).click();
 		 Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"lblBalance\"]")) != null);
 		 //driver.findElement(By.xpath("//div[@class='name' and text()='totobasket']")).click();
 		 //driver.findElement(By.xpath("//div[@class='valueList ']/div[7]")).click();
 		 driver.findElement(By.xpath("//a[@title=\"Трансфер\"]")).click();
-		 Thread.sleep(2000);
+		 Thread.sleep(6000);
 		 WebElement CasinoID = driver.findElement(By.xpath("//label[text() =  'Casino ID']/../input"));
 		 CasinoID.sendKeys("137783");
 		 WebElement Amount = driver.findElement(By.xpath("//label[text() = \"Сумма\"]/../div/input"));
 		 Amount.sendKeys("100");
 		 driver.findElement(By.xpath("//input[@value=\"Подтвердить\"]")).click();
-		 driver.close();
-		 driver.quit();
+		 //driver.close();
+		 //driver.quit();
 	}
-
+	@Test()
+	public void mySecondTest() throws Exception{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://sport.totogaming.am");
+		driver.findElement(By.xpath("//div[@class=\"logo\"]"));
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class=\"logo\"]")) != null);
+		driver.findElement(By.xpath("//*[@id=\"login_panel\"]/a[2]")).click();
+		WebElement login = driver.findElement(By.xpath("//*[@id=\"login\"]"));
+		login.sendKeys("gevsafaryan");
+		WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+		password.sendKeys("A");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"login_dialogue\"]/input")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"lblBalance\"]")) != null);
+		driver.findElement(By.xpath("//div[@class='name' and text()='totobasket']")).click();
+		driver.findElement(By.xpath("//div[@class='valueList ']/div[8]")).click();
+		
+	}
+	@Test()
+	public void myThirdTest(){
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://sport.totogaming.am");
+		driver.findElement(By.xpath("//div[@class=\"logo\"]"));
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class=\"logo\"]")) != null);
+		driver.findElement(By.xpath("//a[text() = \"Календарь\"]")).click();
+		driver.findElement(By.xpath("//div[@id=\"sport_filter\"]")).click();
+		driver.findElement(By.xpath("//div[@class='valueList ']/div[2]")).click();
+		
+	}
 }
