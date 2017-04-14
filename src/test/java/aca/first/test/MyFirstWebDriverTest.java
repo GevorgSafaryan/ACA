@@ -30,7 +30,7 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 */
 	
 
-	@Test()
+	/*@Test()
 	public void myFirstTest() throws Exception{
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
@@ -183,7 +183,7 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		Assert.assertTrue(driver.findElement(By.xpath(Constants.balance)) != null);
 		driver.findElement(By.xpath(Constants.usericon)).click();
 		driver.findElement(By.xpath(Constants.details)).click();
-	}
+	}*/
 	
 	/*@Test()
 	public void aFacebook(){
@@ -197,5 +197,59 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		Select byear = new Select(driver.findElement(By.id("year")));
 		byear.selectByVisibleText("1988");
 	}*/
+	
+	@Test()
+	public void regTest() throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://sport.totogaming.am");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath(Constants.logo));
+		Assert.assertTrue(driver.findElement(By.xpath(Constants.logo)) != null);
+		driver.findElement(By.xpath(Constants.lang)).click();
+		driver.findElement(By.xpath(Constants.en)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Constants.register)).click();
+		WebElement email = driver.findElement(By.xpath(Constants.regemail));
+		email.sendKeys("gevs--88@mail.ru");
+		WebElement mobile = driver.findElement(By.xpath(Constants.regmobile));
+		mobile.sendKeys("+37411111111111");
+		WebElement username = driver.findElement(By.xpath(Constants.regusername));
+		username.sendKeys("qaaca");
+		WebElement passreg = driver.findElement(By.xpath(Constants.regpass));
+		passreg.sendKeys("totoaca2017");
+		WebElement passreg1 = driver.findElement(By.xpath(Constants.regpass1));
+		passreg1.sendKeys("totoaca2017");
+		WebElement fname = driver.findElement(By.xpath(Constants.regfname));
+		fname.sendKeys("Mamikon");
+		WebElement lname = driver.findElement(By.xpath(Constants.reglname));
+		lname.sendKeys("Mamikonyan");
+		driver.findElement(By.xpath(Constants.reggender)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Constants.male)).click();
+		driver.findElement(By.xpath(Constants.bday)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Constants.bday1)).click();
+		driver.findElement(By.xpath(Constants.bmonth)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Constants.bmonth1)).click();
+		driver.findElement(By.xpath(Constants.byear)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Constants.byear1)).click();
+		driver.findElement(By.xpath(Constants.regcountry)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Constants.regcountry1)).click();
+		driver.findElement(By.xpath(Constants.regcity)).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Constants.regcity1)).click();
+		WebElement address = driver.findElement(By.xpath(Constants.regaddress));
+		address.sendKeys("Abovyan 1");
+		WebElement passport = driver.findElement(By.xpath(Constants.regpassport));
+		passport.sendKeys("AH1265478");
+		driver.findElement(By.xpath(Constants.regconfirm)).click();
+		Thread.sleep(15000);
+		driver.findElement(By.xpath(Constants.regsubmit)).click();
+		
+	}
 	
 }
