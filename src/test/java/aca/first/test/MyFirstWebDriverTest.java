@@ -217,7 +217,7 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		WebElement username = driver.findElement(By.xpath(Constants.regusername));
 		username.sendKeys("qaaca");
 		WebElement passreg = driver.findElement(By.xpath(Constants.regpass));
-		passreg.sendKeys("totoaca2017");
+		passreg.sendKeys("t");
 		WebElement passreg1 = driver.findElement(By.xpath(Constants.regpass1));
 		passreg1.sendKeys("totoaca2017");
 		WebElement fname = driver.findElement(By.xpath(Constants.regfname));
