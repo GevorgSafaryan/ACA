@@ -6,6 +6,7 @@ import java.awt.Desktop.Action;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -198,7 +199,7 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		byear.selectByVisibleText("1988");
 	}*/
 	
-	@Test()
+	/*@Test()
 	public void regTest() throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -250,6 +251,43 @@ Expected result: The Sport ID will decrease and the Casino ID will increase by t
 		Thread.sleep(15000);
 		driver.findElement(By.xpath(Constants.regsubmit)).click();
 		
-	}
+	}*/
 	
+	@Test()
+	public void beloteTest() throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://totogaming.am");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//div[@class = 'tl_logo']"));
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class = 'tl_logo']")) != null);
+		driver.findElement(By.xpath("//a[@id='Content-Belote']")).click();
+		driver.findElement(By.xpath("//a[@data-dialog-title='Login']")).click();
+		Thread.sleep(3000);
+		WebElement login = driver.findElement(By.xpath("//input[@id='email']"));
+		login.sendKeys("gevsafaryan@mail.ru");
+		WebElement password = driver.findElement(By.xpath("//input[@id='password']"));
+		password.sendKeys("Levongevor2016");
+		driver.findElement(By.xpath("//button[@class = 'tl_btn_popup login_btn btnSec transBg']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@class = 'tl_drop_down tl_acc_lang flex ternBtn transBg']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@href = '/en/belote ']")).click();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,450)", "");
+		Thread.sleep(2000);
+		WebElement betamount = driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']"));
+		betamount.sendKeys("100");
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']/../../div[3]/div[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//ul[@style = 'display: block;']/li[2]")).click();
+		driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']/../../div[4]/div[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//ul[@style = 'display: block;']/li[3]")).click();
+		driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']/../../div[5]/div[1]/label")).click();
+		driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']/../../div[6]/div[1]/label")).click();
+		driver.findElement(By.xpath("//button[@type = 'submit']")).click();
+		
+	}
 }
