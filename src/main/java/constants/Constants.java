@@ -1,19 +1,18 @@
-package aca.first.test;
+package constants;
 
 public class Constants {
 	
-	public static final String logo = "//div[@class=\"logo\"]";
-	public static final String login1 = "//*[@id=\"login_panel\"]/a[2]";
-	public static final String register = "//*[@id='login_panel']/a[1]";
-	public static final String username = "//*[@id=\"login\"]";
-	public static final String parol = "//*[@id=\"password\"]";
-	public static final String login2 = "//*[@id=\"login_dialogue\"]/input";
-	public static final String balance = "//*[@id=\"lblBalance\"]";
-	public static final String transfer = "//a[@title='Трансфер']";
-	public static final String amount = "//label[text() = \"Сумма\"]/../div/input";
-	public static final String confirm = "//input[@value=\"Подтвердить\"]";
-	public static final String usericon = "//a[@class=\"usericon\"]";
-	public static final String logout = "//div[@class='valueList ']/div[8]";
+	public static final String TOTO_URL="http://totogaming.am";
+	public static final String SPORT_URL="http://sport.totogaming.am";
+	public static final String LOGO_XPATH = "//div[@class=\"logo\"]";
+
+	
+	public static final String BALANCE_XPATH = "//*[@id='lblBalance']";
+	public static final String TRANSFER_XPATH = "//a[contains(attribute::class, 'transfer')]";
+	public static final String AMOUNT_XPATH = "//label[text() = 'Сумма']/../div/input";
+	public static final String CONFIRM_XPATH = "//input[@value='Подтвердить']";
+	public static final String USERICON_XPATH = "//a[@class='usericon']";
+	public static final String LOGOUT_XPATH = "//div[@class='valueList ']/div[8]";
 	public static final String calendar = "//a[text() = \"Календарь\"]";
 	public static final String sportfilter = "//div[@id=\"sport_filter\"]";
 	public static final String football = "//div[@title = \"Футбол\"]";
