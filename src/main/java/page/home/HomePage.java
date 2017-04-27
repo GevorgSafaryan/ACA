@@ -16,6 +16,10 @@ public class HomePage {
 	final String transferXpath = Constants.TRANSFER_XPATH;
 	final String usericonXpath = Constants.USERICON_XPATH;
 	final String logoutXpath = Constants.LOGOUT_XPATH;
+	final String livetvXpath = Constants.LIVETV_XPATH;
+	final String panelXpath = Constants.PANEL_XPATH;
+	final String matchXpath = Constants.MATCH_XPATH;
+	final String movetvXpath = Constants.MOVETV_XPATH;
 	
 	@FindBy(xpath=balanceXpath)
 	WebElement balance;
@@ -28,6 +32,18 @@ public class HomePage {
 	
 	@FindBy(xpath=logoutXpath)
 	WebElement logout;
+	
+	@FindBy(xpath=livetvXpath)
+	WebElement livetv;
+	
+	@FindBy(xpath=panelXpath)
+	WebElement panel;
+	
+	@FindBy(xpath=matchXpath)
+	WebElement match;
+	
+	@FindBy(xpath=movetvXpath)
+	WebElement movetv;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -49,6 +65,22 @@ public class HomePage {
 	
 	public void clickOnUsericon(){
 		this.usericon.click();
+	}
+	
+	public void clickOnLiveTv(){
+		this.livetv.click();
+	}
+	
+	public void clickOnPanel(){
+		this.panel.click();
+	}
+	
+	public void clickOnMatch(){
+		this.match.click();
+	}
+	
+	public void clickOnMoveTv(){
+		this.movetv.click();
 	}
 	
 	public GuestPage clickOnLogout(){
