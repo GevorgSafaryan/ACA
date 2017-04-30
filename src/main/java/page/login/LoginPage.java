@@ -14,6 +14,7 @@ import page.home.HomePage;
 		final String userNameXPath = LoginConstants.USER_NAME;
 		final String passwordXpath = LoginConstants.PASSWORD;
 		final String loginXpath = LoginConstants.LOGIN_2;
+		final String incorrectXpath = LoginConstants.INCORRECT_XPATH;
 	
 		@FindBy(xpath=loginPanelXPath)
 		WebElement loginPanel;
@@ -26,6 +27,9 @@ import page.home.HomePage;
 		
 		@FindBy(xpath=loginXpath)
 		WebElement login;
+		
+		@FindBy(xpath=incorrectXpath)
+		WebElement incorrect;
 	
 	private WebDriver driver;
 
@@ -50,9 +54,17 @@ import page.home.HomePage;
 		this.password.sendKeys(password);
 	}
 
-	public HomePage clickOnLogin(){
+	//java-um, ete method@ asum a throws exception, apa iran kanchogh mehtod@ kam piti iran try/catch-i mej arni
+	// kam piti ed kanchogh methodn el asi throws exception
+	public HomePage clickOnLogin() throws InterruptedException{
 		this.login.click();
+		//es HomePage@ sarqvum a, bayc der ej@ chi bacel, hima Thread.sleep dnem estex, tesnenq kogni?
+		Thread.sleep(3000);
 		return new HomePage(driver);
+	}
+	
+	public boolean isMessageDisplayed(){
+		return this.incorrect.isDisplayed();
 	}
 	
 }

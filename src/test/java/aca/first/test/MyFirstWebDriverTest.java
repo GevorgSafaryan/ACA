@@ -3,16 +3,27 @@ package aca.first.test;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import calendar.page.CalendarPage;
 import constants.Constants;
+import page.belote.BelotePage;
 import page.guest.GuestPage;
 import page.home.HomePage;
 import page.login.LoginPage;
 import page.match.MatchPage;
+import page.registration.RegistrationPage;
+import page.result.ResultPage;
+import page.statistics.StatisticsPage;
 import page.transfer.TransferPage;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -36,29 +47,38 @@ public class MyFirstWebDriverTest {
 		this.driver.close();
 		this.driver.quit();
 	}
-
+	
+//	@BeforeMethod
+//	public void newTab(){
+//		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN); 
+//		driver.findElement(By.linkText(url)).sendKeys(selectLinkOpeninNewTab);
+//	}
+	
 	
 	@Test()
-	public void myFirstTest() throws Exception {
+	 public void myFirstTest() throws InterruptedException  {
 
 		GuestPage guest = new GuestPage(driver);
 		Assert.assertTrue(guest.isLogoDisplayed());
 
 		LoginPage login = new LoginPage(driver);
 		login.clickOnLoginPanel();
-		login.fillUsername("gevsafaryan");
-		login.fillPassword("AcaQa2017");
+		login.fillUsername("gevsafn");
+		login.fillPassword("AcaQa");
 		
 		HomePage home = login.clickOnLogin();
 		Assert.assertTrue(home.isBalanceDisplayed());
 		Thread.sleep(3000);
 		Assert.assertTrue(home.isTransferDisplayed());
 		TransferPage transfer = home.clickOnTransfer();
+		Thread.sleep(3000);
 		transfer.fillAmount("10");
 		transfer.clikOnConfirm();
+		home = transfer.clickOnCloseButton();
+		Thread.sleep(3000);
+		home.logout();
 	}
 	
-
 	@Test()
 	public void mySecondTest() throws Exception {
 		
@@ -67,21 +87,18 @@ public class MyFirstWebDriverTest {
 		
 		LoginPage login = new LoginPage(driver);
 		login.clickOnLoginPanel();
-		login.fillUsername("gevsafaryan");
-		login.fillPassword("AcaQa2017");
+		login.fillUsername("gevsryan");
+		login.fillPassword("AcaQ17");
 		
 		HomePage home = login.clickOnLogin();
 		Assert.assertTrue(home.isBalanceDisplayed());
 		Thread.sleep(3000);
-		home.clickOnUsericon();
-		Thread.sleep(3000);
-		home.clickOnLogout();
-
+		home.logout();
 	}
-
 	
 	
-	 /*@Test() public void myThirdTest() throws Exception{
+	
+	 @Test() public void myThirdTest() throws Exception{
 		 
 		GuestPage guest = new GuestPage(driver);
 		Assert.assertTrue(guest.isLogoDisplayed());
@@ -95,10 +112,10 @@ public class MyFirstWebDriverTest {
 		MatchPage match = calendar.clickOnFirstMatch();
 		Assert.assertTrue(match.isMainDisplayed());
 	 
-	 }*/
+	 }
 	 
 	 
-	  /*@Test() public void myFourthTest() throws Exception {
+	  @Test() public void myFourthTest() throws Exception {
 		  GuestPage draganddrop = new GuestPage(driver);
 		  Assert.assertTrue(draganddrop.isLogoDisplayed());
 		  WebElement draggable = draganddrop.getDraggable();
@@ -114,8 +131,8 @@ public class MyFirstWebDriverTest {
 			
 			LoginPage login = new LoginPage(driver);
 			login.clickOnLoginPanel();
-			login.fillUsername("gevsafaryan");
-			login.fillPassword("AcaQa2017");
+			login.fillUsername("gevsn");
+			login.fillPassword("Aca2017");
 			
 			HomePage home = login.clickOnLogin();
 			Assert.assertTrue(home.isBalanceDisplayed());
@@ -124,155 +141,157 @@ public class MyFirstWebDriverTest {
 			home.clickOnPanel();
 			home.clickOnMatch();
 			home.clickOnMoveTv();
-	 }*/
+	 }
 
-	  /*@Test() public void mySixthTest() throws Exception{
-		  System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver.exe"); 
-		  WebDriver driver = new ChromeDriver();
-		  driver.get("http://sport.totogaming.am");
-		  driver.manage().window().maximize();
-		  driver.findElement(By.xpath(Constants.logo));
-		  Assert.assertTrue(driver.findElement(By.xpath(Constants.logo)) != null);
-		  driver.findElement(By.xpath(Constants.statistics)).click();
+	  @Test() public void mySixthTest() throws Exception{
+		  GuestPage guest = new GuestPage(driver);
+		  Assert.assertTrue(guest.isLogoDisplayed());
+		  
+		  StatisticsPage statistics = guest.clickOnStatistics();
 		  ArrayList<String> windowHandles = new ArrayList<String> (driver.getWindowHandles());
-		  driver.switchTo().window(windowHandles.get(2)); Thread.sleep(10000);
-		  driver.findElement(By.xpath(Constants.stmenu)).click();
-		  driver.findElement(By.xpath(Constants.cont)).click();
-		  driver.findElement(By.xpath(Constants.acountry)).click();
-		  driver.findElement(By.xpath(Constants.atour)).click();
+		  driver.switchTo().window(windowHandles.get(2)); 
 		  Thread.sleep(10000);
-		  driver.findElement(By.xpath(Constants.amatch)).click();
-	 }*/
+		  statistics.clickOnStatmenu();
+		  statistics.clickOnContinent();
+		  statistics.clickOnaCountry();
+		  statistics.clickOnaTournament();
+		  Thread.sleep(10000);
+		  statistics.clickOnaMatch();
+	 }
 	  
-	 /* @Test() public void mySeventhTest() throws Exception{
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "C:\\Users\\Gevor\\Downloads\\chromedriver.exe"); WebDriver driver = new
-	 * ChromeDriver(); driver.get("http://sport.totogaming.am");
-	 * driver.manage().window().maximize();
-	 * driver.findElement(By.xpath(Constants.logo));
-	 * Assert.assertTrue(driver.findElement(By.xpath(Constants.logo)) != null);
-	 * driver.findElement(By.xpath(Constants.lang)).click();
-	 * driver.findElement(By.xpath(Constants.en)).click();
-	 * driver.findElement(By.xpath(Constants.results)).click();
-	 * driver.findElement(By.xpath(Constants.countmenu)).click();
-	 * Thread.sleep(10000);
-	 * driver.findElement(By.xpath(Constants.country)).click();
-	 * driver.findElement(By.xpath(Constants.show)).click();
-	 * 
-	 * }
-	 * 
-	 * @Test() public void myEightTest() throws Exception{
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "C:\\Users\\Gevor\\Downloads\\chromedriver.exe"); WebDriver driver = new
-	 * ChromeDriver(); driver.get("http://sport.totogaming.am");
-	 * driver.manage().window().maximize();
-	 * driver.findElement(By.xpath(Constants.logo));
-	 * Assert.assertTrue(driver.findElement(By.xpath(Constants.logo)) != null);
-	 * driver.findElement(By.xpath(Constants.login1)).click(); WebElement login
-	 * = driver.findElement(By.xpath(Constants.username));
-	 * login.sendKeys("gevsafaryan"); WebElement password =
-	 * driver.findElement(By.xpath(Constants.parol)); password.sendKeys("A");
-	 * Thread.sleep(2000);
-	 * driver.findElement(By.xpath(Constants.login2)).click();
-	 * Assert.assertTrue(driver.findElement(By.xpath(Constants.balance)) !=
-	 * null); driver.findElement(By.xpath(Constants.usericon)).click();
-	 * driver.findElement(By.xpath(Constants.details)).click(); }
-	 * 
-	 * @Test() public void aFacebook(){
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "C:\\Users\\Gevor\\Downloads\\chromedriver.exe"); WebDriver driver = new
-	 * ChromeDriver(); driver.get("http://facebook.com"); Select bday = new
-	 * Select(driver.findElement(By.id("day"))); bday.selectByIndex(15); Select
-	 * bmonth = new Select(driver.findElement(By.id("month")));
-	 * bmonth.selectByValue("11"); Select byear = new
-	 * Select(driver.findElement(By.id("year")));
-	 * byear.selectByVisibleText("1988"); }
-	 * 
-	 * @Test() public void regTest() throws InterruptedException{
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "C:\\Users\\Gevor\\Downloads\\chromedriver.exe"); WebDriver driver = new
-	 * ChromeDriver(); driver.get("http://sport.totogaming.am");
-	 * driver.manage().window().maximize();
-	 * driver.findElement(By.xpath(Constants.logo));
-	 * Assert.assertTrue(driver.findElement(By.xpath(Constants.logo)) != null);
-	 * driver.findElement(By.xpath(Constants.lang)).click();
-	 * driver.findElement(By.xpath(Constants.en)).click(); Thread.sleep(2000);
-	 * driver.findElement(By.xpath(Constants.register)).click(); WebElement
-	 * email = driver.findElement(By.xpath(Constants.regemail));
-	 * email.sendKeys("gevs--88@mail.ru"); WebElement mobile =
-	 * driver.findElement(By.xpath(Constants.regmobile));
-	 * mobile.sendKeys("+37411111111111"); WebElement username =
-	 * driver.findElement(By.xpath(Constants.regusername));
-	 * username.sendKeys("qaaca"); WebElement passreg =
-	 * driver.findElement(By.xpath(Constants.regpass)); passreg.sendKeys("t");
-	 * WebElement passreg1 = driver.findElement(By.xpath(Constants.regpass1));
-	 * passreg1.sendKeys("totoaca2017"); WebElement fname =
-	 * driver.findElement(By.xpath(Constants.regfname));
-	 * fname.sendKeys("Mamikon"); WebElement lname =
-	 * driver.findElement(By.xpath(Constants.reglname));
-	 * lname.sendKeys("Mamikonyan");
-	 * driver.findElement(By.xpath(Constants.reggender)).click();
-	 * Thread.sleep(2000); driver.findElement(By.xpath(Constants.male)).click();
-	 * driver.findElement(By.xpath(Constants.bday)).click(); Thread.sleep(2000);
-	 * driver.findElement(By.xpath(Constants.bday1)).click();
-	 * driver.findElement(By.xpath(Constants.bmonth)).click();
-	 * Thread.sleep(2000);
-	 * driver.findElement(By.xpath(Constants.bmonth1)).click();
-	 * driver.findElement(By.xpath(Constants.byear)).click();
-	 * Thread.sleep(2000);
-	 * driver.findElement(By.xpath(Constants.byear1)).click();
-	 * driver.findElement(By.xpath(Constants.regcountry)).click();
-	 * Thread.sleep(2000);
-	 * driver.findElement(By.xpath(Constants.regcountry1)).click();
-	 * driver.findElement(By.xpath(Constants.regcity)).click();
-	 * Thread.sleep(3000);
-	 * driver.findElement(By.xpath(Constants.regcity1)).click(); WebElement
-	 * address = driver.findElement(By.xpath(Constants.regaddress));
-	 * address.sendKeys("Abovyan 1"); WebElement passport =
-	 * driver.findElement(By.xpath(Constants.regpassport));
-	 * passport.sendKeys("AH1265478");
-	 * driver.findElement(By.xpath(Constants.regconfirm)).click();
-	 * Thread.sleep(15000);
-	 * driver.findElement(By.xpath(Constants.regsubmit)).click();
-	 * 
-	 * }
-	 * 
-	 * @Test() public void beloteTest() throws InterruptedException{
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "C:\\Users\\Gevor\\Downloads\\chromedriver.exe"); WebDriver driver = new
-	 * ChromeDriver(); driver.get("http://totogaming.am");
-	 * driver.manage().window().maximize();
-	 * driver.findElement(By.xpath("//div[@class = 'tl_logo']"));
-	 * Assert.assertTrue(driver.findElement(By.xpath("//div[@class = 'tl_logo']"
-	 * )) != null);
-	 * driver.findElement(By.xpath("//a[@id='Content-Belote']")).click();
-	  driver.findElement(By.xpath("//a[@data-dialog-title='Login']")).click();
-	  Thread.sleep(3000); WebElement login =
-	  driver.findElement(By.xpath("//input[@id='email']"));
-	  login.sendKeys("gevsafaryan@mail.ru"); WebElement password =
-	  driver.findElement(By.xpath("//input[@id='password']"));
-	  password.sendKeys("Levongevor2016"); driver.findElement(By.
-	  xpath("//button[@class = 'tl_btn_popup login_btn btnSec transBg']")).click(); 
-	  Thread.sleep(2000); d
-	  river.findElement(By.xpath("//div[@class = 'tl_drop_down tl_acc_lang flex ternBtn transBg']")).click(); Thread.sleep(2000);
-	  driver.findElement(By.xpath("//a[@href = '/en/belote ']")).click();
-	  JavascriptExecutor jse = (JavascriptExecutor)driver;
-	  jse.executeScript("window.scrollBy(0,450)", ""); Thread.sleep(2000);
-	  WebElement betamount =
-	  driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']"));
-	  betamount.sendKeys("100"); Thread.sleep(10000); driver.findElement(By.
-	  xpath("//input[@id = 'classic_bet_sum']/../../div[3]/div[1]")).click();
-	  Thread.sleep(2000);
-	  driver.findElement(By.xpath("//ul[@style = 'display: block;']/li[2]")).
-	  click(); driver.findElement(By.
-	  xpath("//input[@id = 'classic_bet_sum']/../../div[4]/div[1]")).click();
-	  Thread.sleep(2000);
-	  driver.findElement(By.xpath("//ul[@style = 'display: block;']/li[3]")).
-	  click(); 
-	  driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']/../../div[5]/div[1]/label")).click(); 
-	  driver.findElement(By.xpath("//input[@id = 'classic_bet_sum']/../../div[6]/div[1]/label")).click();
-	  driver.findElement(By.xpath("//button[@type = 'submit']")).click();
+	 @Test() public void mySeventhTest() throws Exception{
+		 GuestPage guest = new GuestPage(driver);
+		 Assert.assertTrue(guest.isLogoDisplayed());
+		 guest.clickOnLanguage();
+		 guest.clickOnEnglish();
+		 
+		 ResultPage result = guest.clickOnResult();
+		 result.clickOnCountryMenu();
+		 result.clickOnCountry();
+		 result.clickOnTournamentMenu();
+		 result.clickOnCountry();
+		 result.clickOnShow();
+	 }
+
+	  @Test() public void myEightTest() throws Exception{
+		  
+		  	GuestPage guest = new GuestPage(driver);
+			Assert.assertTrue(guest.isLogoDisplayed());
+			
+			LoginPage login = new LoginPage(driver);
+			login.clickOnLoginPanel();
+			login.fillUsername("gevaryan");
+			login.fillPassword("Aca2017");
+			HomePage home = login.clickOnLogin();
+			Thread.sleep(3000);
+			Assert.assertTrue(home.isBalanceDisplayed());
+			Thread.sleep(3000);
+			home.clickOnUsericon();
+			Thread.sleep(3000);
+			TransferPage transfer = home.clickOnDetails();
+			Thread.sleep(3000);
+			transfer.enterOldPassword("Ac2017");
+			transfer.enterNewPassword("AcaQa18");
+			transfer.confirmPassword("AQa2018");
+			Thread.sleep(3000);
+			transfer.clickOnUpdate();
+			Thread.sleep(5000);
+			home = transfer.clickOnCloseButton();
+			Assert.assertTrue(home.isBalanceDisplayed());
+			Thread.sleep(3000);
+			home.clickOnUsericon();
+			Thread.sleep(3000);
+			guest = home.clickOnLogout();
+			Thread.sleep(3000);
+			Assert.assertTrue(guest.isLogoDisplayed());
+			login.clickOnLoginPanel();
+			login.fillUsername("gevryan");
+			login.fillPassword("Qa2017");
+			login.clickOnLogin();
+			Thread.sleep(3000);
+			Assert.assertTrue(login.isMessageDisplayed());
+			Thread.sleep(3000);
+			login.fillPassword("Aa2018");
+			home = login.clickOnLogin();
+			Assert.assertTrue(home.isBalanceDisplayed());
+		  }
 	  
-	  }*/
+	 
+		@Test() public void regTest() throws InterruptedException, FileNotFoundException{
+			
+			GuestPage guest = new GuestPage(driver);
+			Assert.assertTrue(guest.isLogoDisplayed());
+			guest.clickOnLanguage();
+			guest.clickOnEnglish();
+			Thread.sleep(2000);
+			RegistrationPage registration = guest.clickOnRegistration();
+			registration.fillEmail();
+			registration.fillMobile();
+			registration.fillUsername();
+			Thread.sleep(2000);
+			//registration.fillUsername("qaaca");
+			registration.fillPassword("totoaca2017");
+			registration.fillPassword1("totoaca2017");
+			registration.fillFirstName("Mamikon");
+			registration.fillLastName("Mamikonyan");
+			registration.clickOnGender();
+			Thread.sleep(2000);
+			registration.clickOnMale();
+			registration.clickOnBirthday();
+			Thread.sleep(2000);
+			registration.clickOnDay();
+			registration.clickOnBirthMonth();
+			Thread.sleep(2000);
+			registration.clickOnMonth();
+			registration.clickOnBirthYear();
+			Thread.sleep(2000);
+			registration.clickOnYear();
+			registration.clickOnRegCountry();
+			Thread.sleep(2000);
+			registration.clickOnRegCountry1();
+			registration.clickOnCity();
+			Thread.sleep(3000);
+			registration.clickOncity1();
+			registration.fillAddres("Abovyan 1");
+			registration.fillPassport("AH1265478");
+			registration.clickOnConfirmation();
+			Thread.sleep(15000);
+			registration.clickOnregSumbit();
+		}
+
+		@Test() public void beloteTest() throws InterruptedException{
+			
+			GuestPage guest = new GuestPage(driver);
+			Assert.assertTrue(guest.isLogoDisplayed());
+			
+			LoginPage login = new LoginPage(driver);
+			login.clickOnLoginPanel();
+			login.fillUsername("gevryan");
+			login.fillPassword("a2017");
+			HomePage home = login.clickOnLogin();
+			Thread.sleep(3000);
+			Assert.assertTrue(home.isBalanceDisplayed());
+			BelotePage belote = home.clickOnBelote();
+			Assert.assertTrue(belote.isBalanceDisplayed());
+			Thread.sleep(2000);
+			belote.clickOnBeloteLanguage();
+			Thread.sleep(2000);
+			belote.clickOnEnglish();
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,450)", ""); 
+			Thread.sleep(2000);
+			belote.fillBetSum("100");
+			Thread.sleep(10000);
+			belote.clickOnGameScore();
+			Thread.sleep(2000);
+			belote.clickOnGameScore1();
+			belote.clickOnStepTime();
+			Thread.sleep(2000);
+			belote.clickOnStepTime1();
+			belote.clickOnPrivateGame();
+			belote.clickOnFourCards();
+			belote.clickOnSubmitButton();
+	  
+	  }
 	 
 }

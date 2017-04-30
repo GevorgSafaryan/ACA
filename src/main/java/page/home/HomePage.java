@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constants.Constants;
+import page.belote.BelotePage;
 import page.guest.GuestPage;
 import page.transfer.TransferPage;
 
@@ -15,11 +16,13 @@ public class HomePage {
 	final String balanceXpath = Constants.BALANCE_XPATH;
 	final String transferXpath = Constants.TRANSFER_XPATH;
 	final String usericonXpath = Constants.USERICON_XPATH;
+	final String detailsXpath = Constants.DETAILS_XPATH;
 	final String logoutXpath = Constants.LOGOUT_XPATH;
 	final String livetvXpath = Constants.LIVETV_XPATH;
 	final String panelXpath = Constants.PANEL_XPATH;
 	final String matchXpath = Constants.MATCH_XPATH;
 	final String movetvXpath = Constants.MOVETV_XPATH;
+	final String beloteXpath = Constants.BELOTE_XPATH;
 	
 	@FindBy(xpath=balanceXpath)
 	WebElement balance;
@@ -29,6 +32,9 @@ public class HomePage {
 	
 	@FindBy(xpath=usericonXpath)
 	WebElement usericon;
+	
+	@FindBy(xpath=detailsXpath)
+	WebElement details;
 	
 	@FindBy(xpath=logoutXpath)
 	WebElement logout;
@@ -44,6 +50,9 @@ public class HomePage {
 	
 	@FindBy(xpath=movetvXpath)
 	WebElement movetv;
+	
+	@FindBy(xpath=beloteXpath)
+	WebElement belote;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -67,6 +76,11 @@ public class HomePage {
 		this.usericon.click();
 	}
 	
+	public TransferPage clickOnDetails(){
+		this.details.click();
+		return new TransferPage(driver);
+	}
+	
 	public void clickOnLiveTv(){
 		this.livetv.click();
 	}
@@ -87,5 +101,15 @@ public class HomePage {
 		this.logout.click();
 		return new GuestPage(driver);
 		
+	}
+	
+	public BelotePage clickOnBelote(){
+		this.belote.click();
+		return new BelotePage(driver);
+	}
+	public GuestPage logout() throws InterruptedException{
+		clickOnUsericon();
+		Thread.sleep(3000);
+		return clickOnLogout();
 	}
 }
