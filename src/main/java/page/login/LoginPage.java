@@ -54,11 +54,9 @@ import page.home.HomePage;
 		this.password.sendKeys(password);
 	}
 
-	//java-um, ete method@ asum a throws exception, apa iran kanchogh mehtod@ kam piti iran try/catch-i mej arni
-	// kam piti ed kanchogh methodn el asi throws exception
+	
 	public HomePage clickOnLogin() throws InterruptedException{
 		this.login.click();
-		//es HomePage@ sarqvum a, bayc der ej@ chi bacel, hima Thread.sleep dnem estex, tesnenq kogni?
 		Thread.sleep(3000);
 		return new HomePage(driver);
 	}

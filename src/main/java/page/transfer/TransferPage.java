@@ -35,7 +35,7 @@ public class TransferPage {
 	@FindBy(xpath=confirmPasswordXpath)
 	WebElement confirmPassword;
 	
-	@FindBy(id=updateXpath)
+	@FindBy(xpath=updateXpath)
 	WebElement update;
 	
 	@FindBy(xpath=closeButtonXpath)

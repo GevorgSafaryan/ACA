@@ -7,5 +7,6 @@ public class LoginConstants {
 	public static final String USER_NAME = "//*[@id=\"login\"]";
 	public static final String PASSWORD = "//*[@id=\"password\"]";
 	public static final String LOGIN_2 = "//*[@id='login_dialogue']/input";
+	public static final String INCORRECT_XPATH = "//div[text() = 'Incorrect username or(and) password.']";
 	
 }

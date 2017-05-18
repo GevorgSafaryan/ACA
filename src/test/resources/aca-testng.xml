@@ -5,7 +5,9 @@
     verbose="9" >
   <test name="Test" preserve-order="true">
     <classes>
+    <!--  before Class-@ estex a -->
        <class name="aca.first.test.MyFirstWebDriverTest" />
+       <!-- after class-n el estex. tesakanoren et amen incy es gitei, es gitem :)practice-i pakas a, kdzvi -->
     </classes>
   </test>
   </suite>

@@ -3,7 +3,6 @@ package aca.first.test;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import calendar.page.CalendarPage;
@@ -48,14 +47,9 @@ public class MyFirstWebDriverTest {
 		this.driver.quit();
 	}
 	
-//	@BeforeMethod
-//	public void newTab(){
-//		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN); 
-//		driver.findElement(By.linkText(url)).sendKeys(selectLinkOpeninNewTab);
-//	}
 	
 	
-	@Test()
+	/*@Test()
 	 public void myFirstTest() throws InterruptedException  {
 
 		GuestPage guest = new GuestPage(driver);
@@ -63,8 +57,8 @@ public class MyFirstWebDriverTest {
 
 		LoginPage login = new LoginPage(driver);
 		login.clickOnLoginPanel();
-		login.fillUsername("gevsafn");
-		login.fillPassword("AcaQa");
+		login.fillUsername("gevsafaryan");
+		login.fillPassword("AcaQa2017");
 		
 		HomePage home = login.clickOnLogin();
 		Assert.assertTrue(home.isBalanceDisplayed());
@@ -87,8 +81,8 @@ public class MyFirstWebDriverTest {
 		
 		LoginPage login = new LoginPage(driver);
 		login.clickOnLoginPanel();
-		login.fillUsername("gevsryan");
-		login.fillPassword("AcaQ17");
+		login.fillUsername("gevsafaryan");
+		login.fillPassword("AcaQa2017");
 		
 		HomePage home = login.clickOnLogin();
 		Assert.assertTrue(home.isBalanceDisplayed());
@@ -131,7 +125,7 @@ public class MyFirstWebDriverTest {
 			
 			LoginPage login = new LoginPage(driver);
 			login.clickOnLoginPanel();
-			login.fillUsername("gevsn");
+			login.fillUsername("gevsafaryan");
 			login.fillPassword("Aca2017");
 			
 			HomePage home = login.clickOnLogin();
@@ -141,9 +135,10 @@ public class MyFirstWebDriverTest {
 			home.clickOnPanel();
 			home.clickOnMatch();
 			home.clickOnMoveTv();
-	 }
+			home.logout();
+	 }*/
 
-	  @Test() public void mySixthTest() throws Exception{
+	  /*@Test() public void mySixthTest() throws Exception{
 		  GuestPage guest = new GuestPage(driver);
 		  Assert.assertTrue(guest.isLogoDisplayed());
 		  
@@ -157,9 +152,9 @@ public class MyFirstWebDriverTest {
 		  statistics.clickOnaTournament();
 		  Thread.sleep(10000);
 		  statistics.clickOnaMatch();
-	 }
+	 }*/
 	  
-	 @Test() public void mySeventhTest() throws Exception{
+	 /*@Test() public void mySeventhTest() throws Exception{
 		 GuestPage guest = new GuestPage(driver);
 		 Assert.assertTrue(guest.isLogoDisplayed());
 		 guest.clickOnLanguage();
@@ -180,8 +175,8 @@ public class MyFirstWebDriverTest {
 			
 			LoginPage login = new LoginPage(driver);
 			login.clickOnLoginPanel();
-			login.fillUsername("gevaryan");
-			login.fillPassword("Aca2017");
+			login.fillUsername("gevsafaryan");
+			login.fillPassword("AcaQa2017");
 			HomePage home = login.clickOnLogin();
 			Thread.sleep(3000);
 			Assert.assertTrue(home.isBalanceDisplayed());
@@ -190,10 +185,10 @@ public class MyFirstWebDriverTest {
 			Thread.sleep(3000);
 			TransferPage transfer = home.clickOnDetails();
 			Thread.sleep(3000);
-			transfer.enterOldPassword("Ac2017");
-			transfer.enterNewPassword("AcaQa18");
-			transfer.confirmPassword("AQa2018");
-			Thread.sleep(3000);
+			transfer.enterOldPassword("AcaQa2017");
+			transfer.enterNewPassword("AcaQa2018");
+			transfer.confirmPassword("AcaQa2018");
+			Thread.sleep(20000);
 			transfer.clickOnUpdate();
 			Thread.sleep(5000);
 			home = transfer.clickOnCloseButton();
@@ -205,13 +200,13 @@ public class MyFirstWebDriverTest {
 			Thread.sleep(3000);
 			Assert.assertTrue(guest.isLogoDisplayed());
 			login.clickOnLoginPanel();
-			login.fillUsername("gevryan");
-			login.fillPassword("Qa2017");
+			login.fillUsername("gevsafaryan");
+			login.fillPassword("AcaQa2017");
 			login.clickOnLogin();
 			Thread.sleep(3000);
 			Assert.assertTrue(login.isMessageDisplayed());
 			Thread.sleep(3000);
-			login.fillPassword("Aa2018");
+			login.fillPassword("AcaQa2018");
 			home = login.clickOnLogin();
 			Assert.assertTrue(home.isBalanceDisplayed());
 		  }
@@ -230,8 +225,7 @@ public class MyFirstWebDriverTest {
 			registration.fillUsername();
 			Thread.sleep(2000);
 			//registration.fillUsername("qaaca");
-			registration.fillPassword("totoaca2017");
-			registration.fillPassword1("totoaca2017");
+			registration.fillBothPasswords();
 			registration.fillFirstName("Mamikon");
 			registration.fillLastName("Mamikonyan");
 			registration.clickOnGender();
@@ -252,12 +246,14 @@ public class MyFirstWebDriverTest {
 			registration.clickOnCity();
 			Thread.sleep(3000);
 			registration.clickOncity1();
-			registration.fillAddres("Abovyan 1");
-			registration.fillPassport("AH1265478");
+			registration.fillAddres();
+			//registration.fillAddres("Abovyan 1");
+			registration.fillPassport();
+			//registration.fillPassport("AH1265478");
 			registration.clickOnConfirmation();
 			Thread.sleep(15000);
-			registration.clickOnregSumbit();
-		}
+			//registration.clickOnregSumbit();
+		}*/
 
 		@Test() public void beloteTest() throws InterruptedException{
 			
@@ -266,8 +262,8 @@ public class MyFirstWebDriverTest {
 			
 			LoginPage login = new LoginPage(driver);
 			login.clickOnLoginPanel();
-			login.fillUsername("gevryan");
-			login.fillPassword("a2017");
+			login.fillUsername("gevsafaryan");
+			login.fillPassword("AcaQa2017");
 			HomePage home = login.clickOnLogin();
 			Thread.sleep(3000);
 			Assert.assertTrue(home.isBalanceDisplayed());
@@ -277,6 +273,7 @@ public class MyFirstWebDriverTest {
 			belote.clickOnBeloteLanguage();
 			Thread.sleep(2000);
 			belote.clickOnEnglish();
+			Thread.sleep(2000);
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
 			jse.executeScript("window.scrollBy(0,450)", ""); 
 			Thread.sleep(2000);
@@ -291,6 +288,10 @@ public class MyFirstWebDriverTest {
 			belote.clickOnPrivateGame();
 			belote.clickOnFourCards();
 			belote.clickOnSubmitButton();
+			/*driver.get("https://blot.totogaming.am");
+			BelotePage belote = new BelotePage(driver);
+			belote.fillBetSum("100");*/
+			
 	  
 	  }
 	 

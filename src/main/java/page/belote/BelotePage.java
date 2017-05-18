@@ -2,6 +2,7 @@ package page.belote;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -21,6 +22,7 @@ public class BelotePage {
 	final String fourCardsXpath = Constants.FOUR_CARDS_XPATH;
 	final String submitButtonXpath = Constants.SUBMIT_BUTTON_XPATH;
 	final String balanceXpath = Constants.BALANCE_XPATH;
+	final String betSumID = Constants.BET_SUM_ID;
 	
 	@FindBy(xpath=beloteLanguageXpath)
 	WebElement beloteLanguage;
@@ -73,6 +75,8 @@ public class BelotePage {
 	}
 	
 	public void fillBetSum(String betSum){
+		//Actions action = new Actions(driver);
+		//action.click(betSum).sendKeys("100");
 		this.betSum.clear();
 		this.betSum.sendKeys(betSum);
 	}

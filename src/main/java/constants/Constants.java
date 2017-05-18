@@ -76,6 +76,7 @@ public class Constants {
 	public static final String BELOTE_LANGUAGE_XPATH = "//div[@class = 'tl_drop_down tl_acc_lang flex ternBtn transBg']";
 	public static final String BELOTE_ENGLISH_XPATH = "//a[@href = '/en/belote ']";
 	public static final String BET_SUM_XPATH = "//input[@id = 'classic_bet_sum']";
+	public static final String BET_SUM_ID = "classic_bet_sum";
 	public static final String GAME_SCORE_XPATH = "//input[@id = 'classic_bet_sum']/../../div[3]/div[1]";
 	public static final String GAME_SCORE1_XPATH = "//ul[@style = 'display: block;']/li[2]";
 	public static final String STEP_TIME_XPATH = "//input[@id = 'classic_bet_sum']/../../div[4]/div[1]";

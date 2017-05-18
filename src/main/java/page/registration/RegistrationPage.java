@@ -1,11 +1,6 @@
 package page.registration;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.UUID;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +11,7 @@ import constants.Constants;
 public class RegistrationPage {
 	WebDriver driver;
 	Random randomGenerator = new Random();
-	
+	int randomInt = randomGenerator.nextInt(100);
 	final String regEmailXpath = Constants.REGISTRATION_EMAIL_XPATH;
 	final String regMobileXpath = Constants.REGISTRATION_MOBILE_XPATH;
 	final String regUsernameXpath = Constants.REGISTRATION_USERNAME_XPATH;
@@ -110,7 +105,6 @@ public class RegistrationPage {
 	
 	@FindBy(xpath=regSubmitXpath)
 	WebElement regsubmit;
-	private Scanner scanner;
 	
 	public RegistrationPage(WebDriver driver) {
 		this.driver = driver;
@@ -120,36 +114,38 @@ public class RegistrationPage {
 	public void fillEmail(){
 		this.regemail.clear();
 		int randomInt = randomGenerator.nextInt(1000);  
-		regemail.sendKeys("username"+ randomInt +"@gmail.com");   
-		
+		regemail.sendKeys("username"+ randomInt +"@gmail.com");
 		//this.regemail.sendKeys(regemail);
 	}
 	
 	public void fillMobile(){
 		this.regmobile.clear();
 		int randomInt = randomGenerator.nextInt(999999);  
-		regmobile.sendKeys("+374"+ randomInt);   
-		
+		regmobile.sendKeys("+374"+ randomInt);
 		//this.regmobile.sendKeys(regmobile);
 	}
 	
-	public void fillUsername() throws FileNotFoundException{
-		scanner = new Scanner(new File("Username"));
-		scanner.nextLine();
-		//this.regusername.clear();
-		//String uuid = UUID.randomUUID().toString();
-		//this.regusername.sendKeys(uuid);
+	public void fillUsername() {
+		this.regusername.clear();
+		int randomInt = randomGenerator.nextInt(2020);
+		regusername.sendKeys("qaaca" + randomInt);
 		//this.regusername.sendKeys(regusername);
 	}
 	
-	public void fillPassword(String regpassword){
+	public void fillPassword(){
 		this.regpassword.clear();
-		this.regpassword.sendKeys(regpassword);
+		regpassword.sendKeys("totoaca" + randomInt);
+		
 	}
 	
-	public void fillPassword1(String regpassword1){
+	public void fillConfirmPassword(){
 		this.regpassword1.clear();
-		this.regpassword1.sendKeys(regpassword1);
+		regpassword1.sendKeys("totoaca" + randomInt);
+	}
+	
+	public void fillBothPasswords(){
+		fillPassword();
+		fillConfirmPassword();
 	}
 	
 	public void fillFirstName(String firstname){
@@ -210,14 +206,18 @@ public class RegistrationPage {
 		this.city1.click();
 	}
 	
-	public void fillPassport(String passport){
+	public void fillPassport(){
 		this.passport.clear();
-		this.passport.sendKeys(passport);
+		int randomInt = randomGenerator.nextInt(99999);
+		passport.sendKeys("AH0" + randomInt + "0");
+		//this.passport.sendKeys(passport);
 	}
 	
-	public void fillAddres(String address){
+	public void fillAddres(){
 		this.address.clear();
-		this.address.sendKeys(address);
+		int randomInt = randomGenerator.nextInt(99);
+		address.sendKeys("Abovyan" + randomInt);
+		//this.address.sendKeys(address);
 	}
 	
 	public void clickOnConfirmation(){
