@@ -290,7 +290,17 @@ public class MyFirstWebDriverTest {
 			belote.clickOnSubmitButton();
 			/*driver.get("https://blot.totogaming.am");
 			BelotePage belote = new BelotePage(driver);
-			belote.fillBetSum("100");*/
+			belote.fillBetSum("100");
+			belote.clickOnGameScore();
+			Thread.sleep(2000);
+			belote.clickOnGameScore1();
+			belote.clickOnStepTime();
+			Thread.sleep(2000);
+			belote.clickOnStepTime1();
+			belote.clickOnPrivateGame();
+			belote.clickOnFourCards();
+			belote.clickOnSubmitButton();
+			*/
 			
 	  
 	  }
