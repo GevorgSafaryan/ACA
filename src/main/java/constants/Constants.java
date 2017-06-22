@@ -44,17 +44,17 @@ public class Constants {
 	public static final String UPDATE_XPATH = "//input[@id = 'ma_md_btnupdate']";
 	public static final String CLOSE_BUTTON_XPATH = "//div[@id = 'maPageCloseButton']";
 	public static final String REGISTRATION_XPATH = "//*[@id='login_panel']/a[1]";
-	public static final String REGISTRATION_EMAIL_XPATH = "//input[@id='reg_email']";
+	public static final String REGISTRATION_EMAIL_XPATH = "//input[@id='Email']";
 	public static final String REGISTRATION_MOBILE_XPATH = "//input[@id='reg_mobile']";
-	public static final String REGISTRATION_USERNAME_XPATH = "//input[@id='reg_username']";
-	public static final String REGISTRATION_PASSWORD_XPATH = "//input[@id='reg_pass']";
-	public static final String REGISTRATION_PASSWORD1_XPATH = "//input[@id='reg_pass1']";
-	public static final String FIRST_NAME_XPATH = "//input[@id='reg_fname']";
-	public static final String LAST_NAME_XPATH = "//input[@id='reg_lname']";
+	public static final String REGISTRATION_USERNAME_XPATH = "//input[@id='UserName']";
+	public static final String REGISTRATION_PASSWORD_XPATH = "//input[@id='Password']";
+	public static final String REGISTRATION_PASSWORD1_XPATH = "//input[@id='PasswordValidation']";
+	public static final String FIRST_NAME_XPATH = "//input[@id='FirstName']";
+	public static final String LAST_NAME_XPATH = "//input[@id='LastName']";
 	public static final String GENDER_XPATH = "//div[@id='reg_gender']";
 	public static final String MALE_XPATH = "//div[@id='reg_gender']/div[1]/div[2]";
-	public static final String BIRTHDAY_XPATH = "//div[@id = 'reg_bdate']/div[1]";
-	public static final String DAY_XPATH = "//div[@id = 'reg_bdate']/div[1]/div[1]/div[3]";
+	public static final String BIRTHDAY_XPATH = "//div[@class='flex dd_cont justify']/div[1]";
+	public static final String DAY_XPATH = "//div[@id='mCSB_10_container']/li[10]";
 	public static final String BIRTH_MONTH_XPATH = "//div[@id = 'reg_bdate']/div[2]";
 	public static final String MONTH_XPATH = "//div[@id = 'reg_bdate']/div[2]/div[1]/div[4]";
 	public static final String BIRTH_YEAR_XPATH = "//div[@id = 'reg_bdate']/div[3]";
@@ -68,7 +68,7 @@ public class Constants {
 	public static final String CONFIRMATION_XPATH = "//span[@class='regChkB']";
 	public static final String REGISTRATION_SUBMIT_XPATH = "//input[@id='reg_submit']";
 	public static final String LOGO_2_XPATH = "//div[@class = 'tl_logo']";
-	public static final String BELOTE_XPATH = "//div[@class='sportHeaderPaneNavigation displayFlex']/a[9]";
+	public static final String BELOTE_XPATH = "//div[@class = 'dd cp promoted']/div[1]/a[1]";
 	public static final String BELOTE_LOGIN_PANEL_XPATH = "//a[@data-dialog-title='Login']";
 	public static final String BELOTE_EMAIL_XPATH = "//input[@id='email']";
 	public static final String BELOTE_PASSWORD_XPATH = "//input[@id='password']";
@@ -84,6 +84,7 @@ public class Constants {
 	public static final String PRIVATE_GAME_XPATH = "//input[@id = 'classic_bet_sum']/../../div[5]/div[1]/label";
 	public static final String FOUR_CARDS_XPATH = "//input[@id = 'classic_bet_sum']/../../div[6]/div[1]/label";
 	public static final String SUBMIT_BUTTON_XPATH = "//button[@type = 'submit']";
+	public static final String GAMES_XPATH = "//button[@class = 'navItem cp']";
 	
 	public static void main(String[] args) {
 		

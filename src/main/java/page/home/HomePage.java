@@ -1,7 +1,9 @@
 package page.home;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -23,6 +25,7 @@ public class HomePage {
 	final String matchXpath = Constants.MATCH_XPATH;
 	final String movetvXpath = Constants.MOVETV_XPATH;
 	final String beloteXpath = Constants.BELOTE_XPATH;
+	final String gamesXpath = Constants.GAMES_XPATH;
 	
 	@FindBy(xpath=balanceXpath)
 	WebElement balance;
@@ -53,6 +56,9 @@ public class HomePage {
 	
 	@FindBy(xpath=beloteXpath)
 	WebElement belote;
+	
+	@FindBy (xpath=gamesXpath)
+	WebElement games;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -104,7 +110,8 @@ public class HomePage {
 	}
 	
 	public BelotePage clickOnBelote(){
-		this.belote.click();
+		Actions action = new Actions(driver);
+		action.moveToElement(games).moveToElement(belote).click().build().perform();
 		return new BelotePage(driver);
 	}
 	public GuestPage logout() throws InterruptedException{
